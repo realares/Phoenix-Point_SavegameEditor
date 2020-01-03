@@ -20,59 +20,98 @@ namespace PP_Parser.Parser
         private Parser() { }
         #endregion
 
+        public bool EnshueBinCompatibility(Stream stream)
+        {
+            stream.Position = 0;
+            byte[] data1 = new byte[stream.Length];
+            stream.Read(data1, 0, data1.Length);
+            stream.Position = 0;
 
-        public void Load(string path)
+            byte[] data2;
+            using (var memStream = new MemoryStream(data1.Length))
+            {
+                BinWriter.Instance.Write(memStream, SaveGame.Instance);
+                data2 = memStream.ToArray();
+            }
+            
+            if (data1.Length != data2.Length)
+                return false;
+
+            return data1.SequenceEqual(data2);
+          
+        }
+
+        public enum LoadResultEnum
+        {
+            notset,
+            OK,
+            NotCompatible
+        }
+
+
+        public LoadResultEnum Load(string path)
         {
             var info = new FileInfo(path);
             var lowerExtension = info.Extension.ToLower();
 
-            Stream stream;
+            Stream stream = null;
+            LoadResultEnum result = LoadResultEnum.OK;
 
-            if (lowerExtension.StartsWith(".z"))
+            try
             {
-                stream = new MemoryStream();
-                using (var fileStream = File.OpenRead(path))
+                if (lowerExtension.StartsWith(".z"))
                 {
-                    using (var gzip = new GZipStream(fileStream, CompressionMode.Decompress, false))
+                    stream = new MemoryStream();
+                    using (var fileStream = File.OpenRead(path))
                     {
-                        gzip.CopyTo(stream);
+                        using (var gzip = new GZipStream(fileStream, CompressionMode.Decompress, false))
+                        {
+                            gzip.CopyTo(stream);
+                        }
+                        stream.Position = 0;
                     }
-                    stream.Position = 0;
+                }
+                else
+                {
+                    stream = File.OpenRead(path);
+                }
+
+                switch (info.Extension.ToLower())
+                {
+                    case ".sav":
+                    case ".zsav":
+                        BinParser.Instance.Load(stream);
+                        if (!EnshueBinCompatibility(stream))
+                            result = LoadResultEnum.NotCompatible;
+                        break;
+
+                    case ".jsav":
+                        JsonParser.Instance.Load(stream);
+#if DEBUG
+                        JsonParser.Instance.TestReadWrite(path);
+#endif
+                        break;
+
+                    case ".zjsav":
+                        JsonParser.Instance.Load(stream);
+                        break;
+
+                    default:
+                        break;
                 }
             }
-            else
+            finally
             {
-                stream = File.OpenRead(path);
+                if (stream != null)
+                {
+                    stream.Close();
+                    stream.Dispose();
+                    stream = null;
+                }
             }
 
-            switch (info.Extension.ToLower())
-            {
-                case ".sav":
-                case ".zsav":
-                    BinParser.Instance.Load(stream);
-                    break;
 
-                case ".jsav":
-                    JsonParser.Instance.Load(stream);
-#if DEBUG
-                    JsonParser.Instance.TestReadWrite(path);
-#endif
-                    break;
-
-                case ".zjsav":
-                    JsonParser.Instance.Load(stream);
-                    break;
-
-                default:
-                    return;
-            }
-
-            if (stream != null)
-            {
-                stream.Close();
-                stream.Dispose();
-                stream = null;
-            }
+            return result;
         }
 
         public void Save(string path)

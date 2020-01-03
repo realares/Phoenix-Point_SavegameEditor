@@ -9,6 +9,7 @@ using PP_Parser.Parser.Binary;
 using PP_Parser.Parser.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -356,7 +357,10 @@ namespace PP_Parser.Parser.Binary
                 throw new Exception();
 
             if (!SubTyper.Instance.TryGetValue((int)obj, out Type type))
+            {
+                Debug.WriteLine($"Problem at: {_reader.BaseStream.Position} can not find: {SubTyper.Instance.GetMissingType((int)obj)}");
                 throw new Exception();
+            }
 
             return type;
         }

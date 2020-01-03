@@ -9,6 +9,6 @@ namespace PhoenixPoint.Tactical.Entities
         public Base.Entities.ActorCreateData ActorCreateData { get; set; }
         public PhoenixPoint.Tactical.Entities.TacActorInstanceData SerializationData { get; set; }
         public bool _enterPlayAbilityPlayed { get; set; }
-        public PhoenixObjectID _validHulkParts { get; set; }
+        public PhoenixGenericArray<bool> _validHulkParts { get; set; }
     }
 }

@@ -39,7 +39,10 @@ namespace PWRA_GUI
             if (string.IsNullOrEmpty(dialog.FileName))
                 return;
 
-            _load(dialog.FileName);
+           _load(dialog.FileName);
+
+            
+
         }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
@@ -64,8 +67,18 @@ namespace PWRA_GUI
 
         private void _load(string path)
         {
-            PP_Parser.Parser.Parser.Instance.Load(path);
+            var result = PP_Parser.Parser.Parser.Instance.Load(path);
 
+            switch (result)
+            {
+
+                case PP_Parser.Parser.Parser.LoadResultEnum.OK:
+                    break;
+                case PP_Parser.Parser.Parser.LoadResultEnum.NotCompatible:
+                    MessageBox.Show("The savefiles is not yet compatible. The savegame cannot be saved correctly. Please contact me. https://github.com/realares/Phoenix-Point_SavegameEditor");
+                    break;
+
+            }
             wrap_wallet.Children.Clear();
             wrap_base.Children.Clear();
             wrap_char.Children.Clear();

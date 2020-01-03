@@ -2,7 +2,7 @@
 
 namespace PhoenixPoint.Common.Entities
 {
-    public class AlienMutationClassDef : PhoenixTagDef
+    public class AlienMonsterClassDef : PhoenixTagDef
     {
     }
 

@@ -3,7 +3,7 @@ using PP_Parser.Parser;
 
 namespace PhoenixPoint.Tactical.Entities.Equipments
 {
-    public class ItemContainerInstanceData : PhonixBaseObjectBaseValue
+    public class ItemContainerInstanceData : PhonixBaseObjectBaseValue2
     {
         public float Health { get; set; }
         public float WillPoints { get; set; }

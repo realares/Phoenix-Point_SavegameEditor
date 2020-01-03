@@ -21,14 +21,17 @@ namespace PP_Parser.Parser
 
         private SubTyper() 
         {
-            _valueTypeMapping = new Dictionary<int, Type>(); 
+            _valueTypeMapping = new Dictionary<int, Type>();
+            _missingTypeMapping = new Dictionary<int, String>();
         }
 
         private Dictionary<int, Type> _valueTypeMapping;
+        private Dictionary<int, String> _missingTypeMapping;
 
         public void Clear()
         {
             _valueTypeMapping.Clear();
+            _missingTypeMapping.Clear();
         }
 
         public bool TryGetValue(int key, out Type value)
@@ -138,8 +141,16 @@ namespace PP_Parser.Parser
             }
             else
             {
+                _missingTypeMapping.Add(item.Id, tname);
                 Debug.WriteLine(item.TypeName);
             }
+        }
+
+        public string GetMissingType(int key)
+        {
+            if (_missingTypeMapping.TryGetValue(key, out string ret))
+                return ret;
+            return "not missing";
         }
 
         public void SetupJsonSubType()

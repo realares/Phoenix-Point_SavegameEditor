@@ -25,14 +25,10 @@ namespace PhoenixPoint.Geoscape.Entities
 
         public PhoenixGenericCollection<PhoenixObjectID> AdditionalDeploymentTags { get; set; }
 
-        [JsonProperty("_progression")]
         public KnownPhoenixObjectID<CharacterProgression> _progression { get; set; }
 
-        [JsonProperty("_health")]
         public KnownPhoenixObjectID<StatusStat> _health { get; set; }
 
-
-        [JsonProperty("_fatigue")]
         public KnownPhoenixObjectID<CharacterFatigue> _fatigue { get; set; }
 
         public bool TemporaryUnit { get; set; }

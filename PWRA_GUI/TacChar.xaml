@@ -14,8 +14,11 @@
                 <TextBlock Text="Max" Width="60" />
                 <TextBlock Text="Value" Width="60" />
             </StackPanel>
-        </StackPanel>
-            <Button Content="Set all to max" Click="btnAllToMax_Click" Width="150" Margin="10" />
+            </StackPanel >
+            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                <Button Content="Set all to max" Click="btnAllToMax_Click" Width="150" Margin="10" />
+            <Button Content="Armor to 200" Click="btnAmorToMax_Click" Width="150" Margin="10" />
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>

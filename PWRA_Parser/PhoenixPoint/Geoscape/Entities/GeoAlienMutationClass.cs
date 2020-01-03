@@ -6,14 +6,10 @@ namespace PhoenixPoint.Geoscape.Entities
 {
     public class GeoAlienMutationClass : PhonixBaseObjectBaseValue
     {
-
-        [JsonProperty("Id")]
         public GeoTacUnitId Id { get; set; }
 
 
         public int DeploymentCost { get; set; }
-
-        [JsonProperty("_bodyParts")]
         public PhoenixGenericCollection<PhoenixObjectID> _bodyParts { get; set; }
 
         [JsonProperty("Equipment")]

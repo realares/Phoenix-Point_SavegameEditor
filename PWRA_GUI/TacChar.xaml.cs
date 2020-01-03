@@ -163,5 +163,35 @@ namespace PWRA_GUI
             }
             SetData();
         }
+        private void btnAmorToMax_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in _context.CollectionValues)
+            {
+                var o = item.Raw();
+                switch (o)
+                {
+                    case StatusStat sat:
+                        {
+                            if (sat.Name.Contains("_Armor"))
+                            {
+                                sat.Value.Value = 200;
+                                sat.Max.Value = 200;
+                            }
+                        }
+                        break;
+
+                    case BaseStat basestat:
+                        if (basestat.Name.Contains("_Armor"))
+                        {
+                            basestat.Value.Value = 200;
+                            basestat.Value.Value = 200;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            SetData();
+        }
     }
 }

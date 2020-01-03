@@ -10,7 +10,7 @@ namespace PhoenixPoint.Tactical.Levels.Missions
         public float DeploymentPointsUsed { get; set; }
         public PhoenixGenericCollection<PhoenixObjectID> _actorDeployData { get; set; }
         public PhoenixGenericCollection<PhoenixObjectID> _actorDeployLimit { get; set; }
-        public PhoenixGenericCollection<PhoenixObjectID> _nextDeployment { get; set; }
+        public PhoenixObjectID _nextDeployment { get; set; }
         public PhoenixObjectID TacMission { get; set; }
     }
     

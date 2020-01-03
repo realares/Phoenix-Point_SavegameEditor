@@ -7,7 +7,7 @@ namespace PhoenixPoint.Common.Levels.ActorDeployment
     {
         public PhoenixObjectID ComponentSetDef { get; set; }
         public PhoenixGenericCollection<PhoenixObjectID> ActorTags { get; set; }
-        public PhoenixTagDef InstanceDef { get; set; }
+        public PhoenixObjectID InstanceDef { get; set; }
 
         [PhoenixBinType(PhoenixTypeCode.Float)]
         public double ChanceWeight { get; set; }

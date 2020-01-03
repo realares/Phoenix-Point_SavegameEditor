@@ -155,6 +155,7 @@
     <Compile Include="PhoenixPoint\Common\Levels\ActorDeployment\ActorDeployData.cs" />
     <Compile Include="PhoenixPoint\Common\Levels\ActorDeployment\ActorDeployLimit.cs" />
     <Compile Include="PhoenixPoint\Common\Levels\MapGeneration\MapPlotGenerationData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\CustomMissionTypeDef.cs" />
     <Compile Include="PhoenixPoint\Common\Levels\Missions\HavenDefenceMissionTypeDef.cs" />
     <Compile Include="PhoenixPoint\Common\Levels\Missions\MissionId.cs" />
     <Compile Include="PhoenixPoint\Common\Levels\Missions\TacMissionData.cs" />
@@ -304,6 +305,7 @@
     <Compile Include="PhoenixPoint\Tactical\Entities\TacActorBaseInstanceData.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacActorEventusComponentDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacActorInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacCharacterDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActor.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActorDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActorRandomTagsDef.cs" />

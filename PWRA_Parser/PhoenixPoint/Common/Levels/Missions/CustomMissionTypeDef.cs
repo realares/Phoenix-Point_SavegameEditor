@@ -3,7 +3,7 @@
 
 namespace PhoenixPoint.Common.Levels.Missions
 {
-    public class AlienBaseMissionTypeDef : PhoenixTagDef
+    public class CustomMissionTypeDef : PhoenixTagDef
     {
     }
     

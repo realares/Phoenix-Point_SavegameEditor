@@ -69,34 +69,43 @@ namespace PP_Parser.Parser.Json
             byte[] writeData = UTF8Encoding.UTF8.GetBytes(json);
             stream.Write(writeData, 0, writeData.Length);
         }
-       
 
-        //public void TestReadWrite(string sourcePath, string dstPath)
-        //{
 
-        //    Save(dstPath);
+#if DEBUG
+        public void TestReadWrite(string sourcePath)
+        {
+            var tmpfile = Path.GetTempFileName() + ".jsav";
 
-        //    var s1 = File.ReadAllLines(sourcePath);
-        //    var s2 = File.ReadAllLines(dstPath);
-        //    int j = 0;
-        //    for (int i = 0; i < s1.Length; i++)
-        //    {
-        //        if (s1[i].Trim() != s2[j].Trim())
-        //        {
-        //            if (s1[i].Trim() == "\"PrefabSource\": null," && s2[j].Trim().StartsWith("\"SerializationGuid\":"))
-        //            {
-        //                // All ok.. this is one i can not fix
-        //                // go ahead with i++                        
-        //                continue;
-        //            }
-        //            Debug.WriteLine($"Line:{i + 1}");
-        //            Debug.WriteLine($"{s1[i]}");
-        //            Debug.WriteLine($"{s2[j]}");
-        //            break;
-        //        }
-        //        j++;
-        //    }
-        //}
+            try
+            {
+                Parser.Instance.Save(tmpfile);
 
+                var s1 = File.ReadAllLines(sourcePath);
+                var s2 = File.ReadAllLines(tmpfile);
+                int j = 0;
+                for (int i = 0; i < s1.Length; i++)
+                {
+                    if (s1[i].Trim() != s2[j].Trim())
+                    {
+                        if (s1[i].Trim() == "\"PrefabSource\": null," && s2[j].Trim().StartsWith("\"SerializationGuid\":"))
+                        {
+                            // All ok.. this is one i can not fix
+                            // go ahead with i++                        
+                            continue;
+                        }
+                        Debug.WriteLine($"Line:{i + 1}");
+                        Debug.WriteLine($"{s1[i]}");
+                        Debug.WriteLine($"{s2[j]}");
+                        break;
+                    }
+                    j++;
+                }
+            }
+            finally
+            {
+                File.Delete(tmpfile);
+            }
+        }
+#endif
     }
 }

@@ -1,4 +1,5 @@
-﻿using PhoenixPoint.Geoscape.Entities;
+﻿using Base.Serialization;
+using PhoenixPoint.Geoscape.Entities;
 using PhoenixPoint.Geoscape.Levels;
 using PhoenixPoint.Tactical.Entities;
 using PP_Parser.Parser;
@@ -19,6 +20,8 @@ namespace PP_Parser.Eval
         public bool IsTacticalMap => OwnerDef == null;
 
         public bool IsGeoscapeMap => OwnerDef != null;
+
+        public PPSavegameMetaData SavegameMetaData => save.Metadata.Objects.Find(x => (x.ObjectValue is PPSavegameMetaData)).ObjectValue as PPSavegameMetaData;
 
         public List<PhoenixBaseObjects> PhoenixTagDefs =>  save.Contents.Objects.FindAll(x => (x.ObjectValue is PhoenixTagDef));
         public PhoenixBaseObjects OwnerDef => PhoenixTagDefs.Find(x => ((PhoenixTagDef)x.ObjectValue).SerializationGuid == KnownDefs.PhoenixFactionDef);

@@ -54,7 +54,9 @@ namespace PP_Parser.Parser
 
                 case ".jsav":
                     JsonParser.Instance.Load(stream);
-                    //JsonParser.Instance.TestReadWrite(path, path + ".new");
+#if DEBUG
+                    JsonParser.Instance.TestReadWrite(path);
+#endif
                     break;
 
                 case ".zjsav":
@@ -81,6 +83,16 @@ namespace PP_Parser.Parser
             if (info.Exists)
                 info.Delete();
 
+            var savegame = SaveGame.Instance;
+#if !DEBUG
+            var meta = Eval.Evaluation.Instance.SavegameMetaData;
+            if (meta != null)
+            {
+                Eval.Evaluation.Instance.SavegameMetaData.Name = info.Name;
+                Eval.Evaluation.Instance.SavegameMetaData.UserSetName = info.Name;
+            }
+#endif
+
             using (var memStream = new MemoryStream())
             {
                 switch (info.Extension.ToLower())
@@ -101,6 +113,7 @@ namespace PP_Parser.Parser
 
                 using (var fileStream = File.OpenWrite(path))
                 {
+                    memStream.Position = 0;
                     if (lowerExtension.StartsWith(".z"))
                     {
                         using (var gzip = new GZipStream(fileStream, CompressionMode.Compress, false))

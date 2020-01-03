@@ -23,7 +23,7 @@ namespace PP_Parser.Parser.Binary
         {
             _stringTable.Clear();
 
-            using (BinaryWriter _writer = new BinaryWriter(writeStream))
+            using (BinaryWriter _writer = new BinaryWriter(writeStream, UTF8Encoding.UTF8, true))
             {
                 _writer.Write((UInt32)BinConsts.HeaderMagic);
 

@@ -336,6 +336,11 @@
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TacStatusDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TriggerAbilityZoneOfControlStatus.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TriggerAbilityZoneOfControlStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\StructuralTargets\StructuralTarget.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\StructuralTargets\StructuralTargetDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\StructuralTargets\StructuralTargetDeployment.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\StructuralTargets\StructuralTargetInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\StructuralTargetViewDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacActorBaseEventusComponentDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacActorBaseInstanceData.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\TacActorEventusComponentDef.cs" />

@@ -13,8 +13,8 @@ namespace PhoenixPoint.Tactical.Entities.Equipments
         public PhoenixObjectID FactionDef { get; set; }
         public PhoenixEnum MissionParticipant { get; set; }
         public Common.Entities.GeoTacUnitId GeoUnitId { get; set; }
-        public PhoenixObjectID Stats { get; set; }
-        public PhoenixObjectID Statuses { get; set; }
+        public PhoenixGenericCollection<PhoenixObjectID> Stats { get; set; }
+        public PhoenixGenericCollection<PhoenixObjectID> Statuses { get; set; }
         public PhoenixGenericCollection<PhoenixPoint.Tactical.Entities.ItemData> InventoryItems { get; set; }
         public PhoenixObjectID ModelPose { get; set; }
         public int Contribution { get; set; }

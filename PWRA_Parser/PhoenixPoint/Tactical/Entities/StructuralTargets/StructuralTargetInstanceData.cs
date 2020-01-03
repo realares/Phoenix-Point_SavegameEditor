@@ -1,19 +1,17 @@
-﻿using Base;
-using Base.Utils;
+﻿using Base.Utils;
 using PP_Parser.Parser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine.CoreModule;
 
-namespace PhoenixPoint.Tactical.Entities
+namespace PhoenixPoint.Tactical.Entities.StructuralTargets
 {
-    public class TacActorBaseInstanceData : PhonixBaseObjectBaseValue2
+    public class StructuralTargetInstanceData : PhonixBaseObjectBaseValue2
     {
         public float Health { get; set; }
         public float WillPoints { get; set; }
-
+        public int FacilityID { get; set; }
+        public float Armor { get; set; }
+        public Vector3 UIElementWorldOffset { get; set; }
+        public Vector3 UIElementScreenOffset { get; set; }
         public PhoenixObjectID OverrideViewElement { get; set; }
         public PhoenixObjectID OverrideName { get; set; }
         public PhoenixGenericCollection<PhoenixObjectID> AdditionalGameTags { get; set; }
@@ -31,6 +29,7 @@ namespace PhoenixPoint.Tactical.Entities
         public UnityEngine.CoreModule.Quaternion Rot { get; set; }
         public PhoenixObjectID Source { get; set; }
         public PhoenixObjectID TimingData { get; set; }
+
 
     }
 }

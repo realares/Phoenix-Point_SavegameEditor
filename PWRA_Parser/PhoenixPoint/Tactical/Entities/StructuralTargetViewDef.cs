@@ -2,7 +2,10 @@
 
 namespace PhoenixPoint.Tactical.Entities
 {
-    public class CrateItemContainerDef : PhoenixTagDef
+    public class StructuralTargetViewDef : PhoenixTagDef
     {
     }
+
+
+
 }

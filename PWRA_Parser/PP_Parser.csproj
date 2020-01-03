@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4FA12BF-5C56-4217-A801-AD29FB5AB93C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PP_Parser</RootNamespace>
+    <AssemblyName>PP_Parser</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Core\ComponentSetDef.cs" />
+    <Compile Include="Base\Core\IPhoenixTimeTicks.cs" />
+    <Compile Include="Base\Core\NextUpdate.cs" />
+    <Compile Include="Base\Core\SceneReference.cs" />
+    <Compile Include="Base\Core\TimeUnit.cs" />
+    <Compile Include="Base\Core\TimingInstanceData.cs" />
+    <Compile Include="Base\Entities\ActionComponentDef.cs" />
+    <Compile Include="Base\Entities\ActorCreateData.cs" />
+    <Compile Include="Base\Entities\NavMeshNavigationComponentDef.cs" />
+    <Compile Include="Base\Entities\Statuses\BaseStat.cs" />
+    <Compile Include="Base\Entities\Statuses\ModifiableValue.cs" />
+    <Compile Include="Base\Entities\Statuses\StatModification.cs" />
+    <Compile Include="Base\Entities\Statuses\StatusStat.cs" />
+    <Compile Include="Base\Levels\LevelDef.cs" />
+    <Compile Include="Base\Levels\LevelSceneBinding.cs" />
+    <Compile Include="Base\Levels\LevelSerializedData.cs" />
+    <Compile Include="Base\Levels\SceneObjectIds\SceneObjectId.cs" />
+    <Compile Include="Base\Lite\PhoenixTypDefLite.cs" />
+    <Compile Include="Base\Lite\SaveMetaGame.cs" />
+    <Compile Include="Base\Platforms\EntitlementDef.cs" />
+    <Compile Include="Eval\Evaluation.cs" />
+    <Compile Include="Eval\KnownDefs.cs" />
+    <Compile Include="Parser\BinParser\BinWriter.cs" />
+    <Compile Include="Parser\BinParser\ReflectionMaster.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\BinParser\PhoenixBinTypeAttribute.cs" />
+    <Compile Include="Parser\PhoenixValueType.cs" />
+    <Compile Include="Parser\SafeGame.cs" />
+    <Compile Include="Base\Serialization\General\TypeData.cs" />
+    <Compile Include="Base\Serialization\PPGameId.cs" />
+    <Compile Include="Base\Serialization\PPSavegameMetaData.cs" />
+    <Compile Include="Base\Serialization\TacticalSaveDependency.cs" />
+    <Compile Include="Base\UI\LocalizedTextBind.cs" />
+    <Compile Include="Base\UI\VideoPlayback\VideoPlaybackSourceDef.cs" />
+    <Compile Include="Base\Utils\PhoenixEnum.cs" />
+    <Compile Include="Base\Utils\PoseTransform.cs" />
+    <Compile Include="Base\Utils\RangeDataInt.cs" />
+    <Compile Include="Base\Utils\UnityDateTime.cs" />
+    <Compile Include="Parser\BinParser\BinConsts.cs" />
+    <Compile Include="Parser\BinParser\BinParser.cs" />
+    <Compile Include="Parser\BinParser\ReflectDynamicReflect.cs" />
+    <Compile Include="Parser\JsonParser\JsonParser.cs" />
+    <Compile Include="Parser\JsonParser\JsonSubtypes.cs" />
+    <Compile Include="Parser\JsonParser\DecimalJsonConverter.cs" />
+    <Compile Include="Parser\SubTyper.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\EarthUnits.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\PartyDiplomacy.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\PartyDiplomacySettingsDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\PPFactionDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\ResourcePack.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\ResourceUnit.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\GameDifficultyLevelDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Core\Wallet.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Addons\AddonsComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\AlienMutationClassDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\AmmoManager.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\CharacterClassDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\AbilityTrack.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\AbilityTrackSlot.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\CharacterBodyState.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\CharacterBodyStateDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\CharacterFatigue.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\CharacterIdentity.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\CharacterProgression.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\LevelProgression.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\LevelProgressionDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\TacticalMissionUnitHistoryItem.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Characters\UnitHistory.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\CommonItemData.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\CountryDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ActorDeploymentTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ClassTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\CustomizationEyeColorTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\CustomizationHairColorTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\CustomizationPatternTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\CustomizationPrimaryColorTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\CustomizationSecondaryColorTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\DiplomacyStateTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\FaceTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\FacialHairTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\FactionFunctionalityTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\FactionTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\GenderTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\HairTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ItemClassificationTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ItemMaterialTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ItemStateTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ItemTypeTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\MissionTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\NightVisionSkillTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\RaceTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\SkillTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\SpawnedActorTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\UniformTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\VoiceProfileTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTags\GameTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Items\InventoryComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Items\InventorySupplementComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Items\ItemManufacturing.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\Items\VehicleItemDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\PhoenixFacilityDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\SpecializationDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\ActorDeployment\ActorDeployData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\ActorDeployment\ActorDeployLimit.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\MapGeneration\MapPlotGenerationData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\HavenDefenceMissionTypeDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\MissionId.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\TacMissionData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\TacMissionDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\TacMissionFactionData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Params\TacticalGameParams.cs" />
+    <Compile Include="PhoenixPoint\Common\UI\ViewElementDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoHavenDefenseMission.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoHavenDefenseMissionInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\AICoreFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\ContainerFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\ExperienceFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\HealFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\PowerFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\PrisonFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\ResourceGeneratorFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\SatelliteUplinkFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\SecurityStationFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\UseSoldiersFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\FacilityComponents\VehicleSlotFacilityComponent.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\GeoPhoenixFacility.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PostmissionReplenishManager.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\MapGeneration\MapParcelDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\MapGeneration\MapPlotDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\AlienBaseMissionTypeDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Missions\ScavengingMissionTypeDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Core\GeoUnitId.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Core\SiteAttackSchedule.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoAlienBase.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoAlienBaseMission.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoItem.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoScavengingMission.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\PhoenixBases\GeoPhoenixBaseLayout.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Research\Requirement\ResearchRequirement.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Research\Research.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Research\ResearchElement.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Sites\GeoHavenLeader.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Sites\GeoHavenZone.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Sites\GeoPhoenixBase.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\Sites\GeoSiteFactionData.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoAlienMutationClass.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoCharacter.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GeoTacUnitId.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoHaven.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\ItemStorage.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\VehicleFactionController.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Events\GeoscapeEventSystem.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\FactionAggressionRequest.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\FactionDiplomacy.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\FactionDiplomacyState.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\GeoAlienFactionDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\GeoAlienFaction.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\GeoPhoenixFaction.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Factions\GeoPhoenixFactionDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoAlienBaseTypeDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoFactionDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoFactionInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\MapGeneration\MapParcelInstance.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\MapGeneration\MapPlotInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\Params\GeoscapeGameParams.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\DifficultySystem\DynamicDifficultySystem.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoActor.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoLevelSavegame+Data.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoScanner.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoSite.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoSiteAddonDef.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoSiteInstaceData.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoVehicle.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Entities\GeoVehicleInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\GeoLevelInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoPhoenixpedia.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoscapeLog.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoscapeLogEntry.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\GeoscapeTutorial.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\ActiveSitesGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\BuildFacilityGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\DiplomaticGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\EventGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\FindPhoenixBaseGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\MissionGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\ResearchGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\Levels\Objectives\ResearchRequirementGeoFactionObjective.cs" />
+    <Compile Include="PhoenixPoint\Geoscape\MistRendererSystem.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Achievements\TacAchievementTrackerInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\AI\AIBlackboardData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\AI\TacAIActorDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\AI\TacAIWaypoint.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\ApplyEffectAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\ApplyStatusAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\BashAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\ClassProficiencyAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\DamageEffectDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\DeployShieldAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\DeployTurretAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\EnterPlayAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\HealAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\MindControlAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\OverwatchAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\PassiveModifierAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\RepositionAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\ReturnFireAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\ShootAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\SpawnActorAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\TacticalAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacCharacterData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacEquipmentCrateData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Animations\TacActorAnimActionsDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\BodyPartAspectDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\CrateItemContainer.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\CrateItemContainerDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\CrateItemContainerInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\DamageAccumulation.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Effects\DamageTypeBaseEffectDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Effects\DamageTypes\DamageTypeBaseEffectDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\BodyPartAspectDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\CrateComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\EquipmentComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\EquipmentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\ItemContainer.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\ItemContainerInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Equipments\TacticalItemDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\ItemData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\AddAttackBoostStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\AddAttackBoostStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\AIEvaluationStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\AIEvaluationStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\BleedStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\BleedStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\BonusStatHolderStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\BonusStatHolderStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\ChangeAbilitiesCostStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\ChangeAbilitiesCostStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\FactionVisibilityConditionStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\FactionVisibilityConditionStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\HealthChangeStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\HealthChangeStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\ShieldDeployedStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\ShieldDeployedStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\StanceStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\StanceStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TacStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TacStatusComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TacStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TriggerAbilityZoneOfControlStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\TriggerAbilityZoneOfControlStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacActorBaseEventusComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacActorBaseInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacActorEventusComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacActorInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActor.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActorDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActorRandomTagsDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActorViewBaseDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalActorViewDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalDemolitionComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalNavigationComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalPerceptionBaseDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\TacticalPerceptionDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\VehicleComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Weapons\WeaponDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\XRayComponentDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Levels\ActorDeployment\AIActorData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\ActorDeployment\MissionDeployCondition.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\ActorDeployment\MissionDeployConditionData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\ActorDeployment\TacticalDeployZone.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\ActorDeployment\TacticalExitZone.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Destruction\Breakable.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Destruction\Destructable.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\FactionEffects\TacticalFactionEffect.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\FactionEffects\TacticalFactionEffectDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Missions\TacMission.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Missions\TacParticipantSpawn.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Mist\TacticalVoxel.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Mist\TacticalVoxelMatrix.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\Objectives\TacticalZoneObjective.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\SlidingDoor.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\TacFactionData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\TacLevelInstanceData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\TacticalFactionDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\TacticalFactionVision.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\TacticalGameplayStatistics.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Levels\TacticalLevelLights\DarkVolumesManager.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Serialization\TacLevelSavegame.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnityEngine\Quaternion.cs" />
+    <Compile Include="UnityEngine\Vector2Int.cs" />
+    <Compile Include="UnityEngine\Vector3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

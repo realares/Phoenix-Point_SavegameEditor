@@ -126,7 +126,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp8\PP_Parser.csproj">
+    <ProjectReference Include="..\PWRA_Parser\PP_Parser.csproj">
       <Project>{a4fa12bf-5c56-4217-a801-ad29fb5ab93c}</Project>
       <Name>PP_Parser</Name>
     </ProjectReference>

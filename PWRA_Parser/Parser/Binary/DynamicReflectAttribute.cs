@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PP_Parser.BinParser
+namespace PP_Parser.Parser.Binary
 {
     [System.AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
     sealed class DynamicReflectAttribute : Attribute

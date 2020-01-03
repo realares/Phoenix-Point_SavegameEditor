@@ -1,10 +1,5 @@
-﻿using Base;
-using Base.Levels.SceneObjectIds;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.Levels.SceneObjectIds;
+using PP_Parser.Parser;
 
 namespace PhoenixPoint.Common.Levels.MapGeneration
 {

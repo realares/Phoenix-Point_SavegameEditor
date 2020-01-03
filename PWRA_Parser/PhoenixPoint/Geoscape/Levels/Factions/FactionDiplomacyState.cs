@@ -1,11 +1,5 @@
-﻿using Base;
-using Base.UI;
-using PhoenixPoint.Geoscape.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.UI;
+using PP_Parser.Parser;
 
 namespace PhoenixPoint.Geoscape.Levels.Factions
 {

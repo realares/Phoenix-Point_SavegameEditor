@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PP_Parser.Parser.JsonParser
+namespace PP_Parser.Parser.Json
 {
     public class JsonParser
     {
@@ -51,54 +51,52 @@ namespace PP_Parser.Parser.JsonParser
             }
         }
 
-        public void Save(string dstPath)
+
+        public void Save(Stream stream, SaveGame saveGame)
         {
             var settings = new JsonSerializerSettings();
             settings.Converters.Add(new DecimalJsonConverter());
-            // settings.Converters.Add(new muhconverter());
             settings.Formatting = Formatting.Indented;
 
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(saveGame, settings);
 
-            var ff = Newtonsoft.Json.JsonConvert.SerializeObject(SaveGame.Instance, settings);
-
-            ff = ff
+            // do some Fixes
+            json = json
                 .Replace(": []", ": [\r\n            ]")
                 .Replace(": 0.0,", ": 0,")
-                .Replace(": 0.0\r\n", ": 0\r\n")
-                ;
-            File.WriteAllText(dstPath, ff);
+                .Replace(": 0.0\r\n", ": 0\r\n");
+
+            byte[] writeData = UTF8Encoding.UTF8.GetBytes(json);
+            stream.Write(writeData, 0, writeData.Length);
         }
        
 
-        public void TestReadWrite(string sourcePath, string dstPath)
-        {
+        //public void TestReadWrite(string sourcePath, string dstPath)
+        //{
 
-            Save(dstPath);
+        //    Save(dstPath);
 
-            var s1 = File.ReadAllLines(sourcePath);
-            var s2 = File.ReadAllLines(dstPath);
-            int j = 0;
-            for (int i = 0; i < s1.Length; i++)
-            {
-                if (s1[i].Trim() != s2[j].Trim())
-                {
-                    if (s1[i].Trim() == "\"PrefabSource\": null," && s2[j].Trim().StartsWith("\"SerializationGuid\":"))
-                    {
-                        // All ok.. this is one i can not fix
-                        // go ahead with i++                        
-                        continue;
-                    }
-
-                    //
-
-                    Debug.WriteLine($"Line:{i + 1}");
-                    Debug.WriteLine($"{s1[i]}");
-                    Debug.WriteLine($"{s2[j]}");
-                    break;
-                }
-                j++;
-            }
-        }
+        //    var s1 = File.ReadAllLines(sourcePath);
+        //    var s2 = File.ReadAllLines(dstPath);
+        //    int j = 0;
+        //    for (int i = 0; i < s1.Length; i++)
+        //    {
+        //        if (s1[i].Trim() != s2[j].Trim())
+        //        {
+        //            if (s1[i].Trim() == "\"PrefabSource\": null," && s2[j].Trim().StartsWith("\"SerializationGuid\":"))
+        //            {
+        //                // All ok.. this is one i can not fix
+        //                // go ahead with i++                        
+        //                continue;
+        //            }
+        //            Debug.WriteLine($"Line:{i + 1}");
+        //            Debug.WriteLine($"{s1[i]}");
+        //            Debug.WriteLine($"{s2[j]}");
+        //            break;
+        //        }
+        //        j++;
+        //    }
+        //}
 
     }
 }

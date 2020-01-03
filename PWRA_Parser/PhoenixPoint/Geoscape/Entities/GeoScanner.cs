@@ -1,19 +1,13 @@
-﻿using Base;
-using Base.Core;
+﻿using Base.Core;
 using Base.Entities;
-using Base.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PP_Parser.Parser;
 
 namespace PhoenixPoint.Geoscape.Entities
 {
     public class GeoScanner : PhonixBaseObjectBaseValue
     {
-        public ActorCreateData ActorCreateData { get; set; } // 28
-        public GeoScanner.GeoScannerInstanceData SerializationData { get; set; } // 47
+        public ActorCreateData ActorCreateData { get; set; } 
+        public GeoScanner.GeoScannerInstanceData SerializationData { get; set; }
 
 
         public class GeoScannerInstanceData : PhonixBaseObjectBaseValue

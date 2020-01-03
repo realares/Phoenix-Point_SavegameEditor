@@ -1,30 +1,11 @@
-﻿using Base;
-using Base.Entities.Statuses;
-using Microsoft.Win32;
-using PhoenixPoint.Common.Core;
+﻿using Microsoft.Win32;
 using PhoenixPoint.Geoscape.Entities;
 using PhoenixPoint.Geoscape.Levels;
-using PhoenixPoint.Tactical.Entities;
 using PP_Parser.Eval;
-using PP_Parser.Parser;
-using PP_Parser.Parser.JsonParser;
 using PWRA_GUI.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace PWRA_GUI
 {
@@ -47,6 +28,10 @@ namespace PWRA_GUI
 
             if (Directory.Exists(@"G:\Test")) // for test
                 dialog.InitialDirectory = @"G:\Test";
+            else
+            {
+
+            }
 
             dialog.ShowDialog();
                 
@@ -60,22 +45,26 @@ namespace PWRA_GUI
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new SaveFileDialog();
-            dialog.Filter = "json Savefiles|*.jsav;*zjsav";
+            dialog.Filter = "Gzip Bin Savefile|*.zsav|Bin Savefile|*.sav|Gzip json Savefile|*.zjsav|Json Savefiles|*.jsav";
 
             if (Directory.Exists(@"G:\Test")) // for test
                 dialog.InitialDirectory = @"G:\Test";
+            else
+            {
+
+            }
 
             dialog.ShowDialog();
 
             if (string.IsNullOrEmpty(dialog.FileName))
                 return;
 
-            ConsoleApp8.Program.Save(dialog.FileName);
+            PP_Parser.Parser.Parser.Instance.Save(dialog.FileName);
         }
 
         private void _load(string path)
         {
-            Parser.Instance.Load(path);
+            PP_Parser.Parser.Parser.Instance.Load(path);
 
             wrap_wallet.Children.Clear();
             wrap_base.Children.Clear();

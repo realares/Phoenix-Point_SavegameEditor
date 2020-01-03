@@ -1,12 +1,5 @@
-﻿using Base;
-using PhoenixPoint.Tactical.Entities;
-using PP_Parser.BinParser;
-using PP_Parser.Parser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PP_Parser.Parser;
+using PP_Parser.Parser.Binary;
 
 namespace PhoenixPoint.Common.Levels.ActorDeployment
 {

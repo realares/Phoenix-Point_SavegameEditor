@@ -1,12 +1,7 @@
-﻿using PhoenixPoint.Common.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PP_Parser.Base;
+﻿using Base.Platforms;
 using Base.Utils;
-using Base.Platforms;
+using PhoenixPoint.Common.Core;
+using PP_Parser.Parser;
 
 namespace Base.Serialization
 {

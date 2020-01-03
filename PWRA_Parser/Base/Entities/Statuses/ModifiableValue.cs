@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PP_Parser.Parser;
+using PP_Parser.Parser.Binary;
 
 namespace Base.Entities.Statuses
 {

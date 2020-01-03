@@ -1,5 +1,5 @@
-﻿using Base;
-using PP_Parser.Parser;
+﻿using PP_Parser.Parser;
+using PP_Parser.Parser.Binary;
 
 namespace PhoenixPoint.Tactical.Entities
 {

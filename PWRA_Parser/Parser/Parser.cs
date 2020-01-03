@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Base;
+using PP_Parser.Parser.Binary;
+using PP_Parser.Parser.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -46,16 +49,16 @@ namespace PP_Parser.Parser
             {
                 case ".sav":
                 case ".zsav":
-                    PP_Parser.BinParser.BinParser.Instance.Load(stream);
+                    BinParser.Instance.Load(stream);
                     break;
 
                 case ".jsav":
-                    JsonParser.JsonParser.Instance.Load(stream);
-                    JsonParser.JsonParser.Instance.TestReadWrite(path, path + ".new");
+                    JsonParser.Instance.Load(stream);
+                    //JsonParser.Instance.TestReadWrite(path, path + ".new");
                     break;
 
                 case ".zjsav":
-                    JsonParser.JsonParser.Instance.Load(stream);
+                    JsonParser.Instance.Load(stream);
                     break;
 
                 default:
@@ -67,6 +70,49 @@ namespace PP_Parser.Parser
                 stream.Close();
                 stream.Dispose();
                 stream = null;
+            }
+        }
+
+        public void Save(string path)
+        {
+            var info = new FileInfo(path);
+            var lowerExtension = info.Extension.ToLower();
+
+            if (info.Exists)
+                info.Delete();
+
+            using (var memStream = new MemoryStream())
+            {
+                switch (info.Extension.ToLower())
+                {
+                    case ".sav":
+                    case ".zsav":
+                        BinWriter.Instance.Write(memStream, SaveGame.Instance);
+                        break;
+
+                    case ".jsav":
+                    case ".zjsav":
+                        JsonParser.Instance.Save(memStream, SaveGame.Instance);
+                        break;
+
+                    default:
+                        return;
+                }
+
+                using (var fileStream = File.OpenWrite(path))
+                {
+                    if (lowerExtension.StartsWith(".z"))
+                    {
+                        using (var gzip = new GZipStream(fileStream, CompressionMode.Compress, false))
+                        {
+                            memStream.CopyTo(gzip);
+                        }
+                    }
+                    else
+                    {
+                        memStream.CopyTo(fileStream);
+                    }
+                }
             }
         }
     }

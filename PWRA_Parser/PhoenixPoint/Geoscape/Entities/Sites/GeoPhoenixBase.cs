@@ -1,12 +1,7 @@
-﻿using Base;
-using Base.UI;
+﻿using Base.UI;
 using PhoenixPoint.Common.Core;
 using PhoenixPoint.Geoscape.Entities.PhoenixBases;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PP_Parser.Parser;
 
 namespace PhoenixPoint.Geoscape.Entities.Sites
 {

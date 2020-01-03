@@ -3,29 +3,16 @@ using JsonSubTypes;
 using Newtonsoft.Json;
 using PhoenixPoint.Tactical.Entities;
 using PP_Parser.Base;
-using PP_Parser.BinParser;
 using PP_Parser.Parser;
+using PP_Parser.Parser.Binary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base
+namespace PP_Parser.Parser
 {
-
-    public class SaveGame
-    {
-        [JsonIgnore]
-        public static SaveGame Instance { get; set; }
-
-
-        public int Version { get; set; }
-        public PhoenixObjectHolder Metadata { get; set; }
-        public PhoenixObjectHolder Contents { get; set; }
-        public PhoenixObjectHolder RuntimeDefs { get; set; }
-
-    }
 
 
     public class PhoenixBaseObjects

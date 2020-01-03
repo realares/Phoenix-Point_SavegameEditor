@@ -1,6 +1,6 @@
-﻿using Base;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PP_Parser.Parser;
+using PP_Parser.Parser.Binary;
 
 namespace PhoenixPoint.Common.Entities.Items
 {

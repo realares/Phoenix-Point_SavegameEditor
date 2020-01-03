@@ -6,31 +6,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PP_Parser.Parser.BinParser
+namespace PP_Parser.Parser.Binary
 {
     public class BinWriter
     {
+        #region Singleton
+        private static Lazy<BinWriter> _Instance = new Lazy<BinWriter>(() => new BinWriter());
+        public static BinWriter Instance = _Instance.Value;
+
+        private BinWriter() { }
+        #endregion
+
         Dictionary<string, int> _stringTable = new Dictionary<string, int>();
 
-        public void Write(object saveGame)
+        public void Write(Stream writeStream, object saveGame)
         {
-            string path = @"g:\test\writertest.sav";
-            if (File.Exists(path))
-                File.Delete(path);
-            using (var writeStream = File.OpenWrite(path))
+            _stringTable.Clear();
+
+            using (BinaryWriter _writer = new BinaryWriter(writeStream))
             {
+                _writer.Write((UInt32)BinConsts.HeaderMagic);
 
-                using (BinaryWriter _writer = new BinaryWriter(writeStream))
-                {
-                    _writer.Write((UInt32)PP_Parser.BinParser.BinConsts.HeaderMagic);
+                WriteObject(saveGame, _writer);
 
-                    WriteObject(saveGame, _writer);
+                var stringtablelist  = _stringTable.Keys.ToList<string>();
 
-                    var stringtablelist  = _stringTable.Keys.ToList<string>();
-
-                    WriteArrayObject<string>(stringtablelist, _writer);
-                }
+                WriteArrayObject<string>(stringtablelist, _writer);
             }
+            
         }
 
         public void WriteObject(object obj, BinaryWriter writer)

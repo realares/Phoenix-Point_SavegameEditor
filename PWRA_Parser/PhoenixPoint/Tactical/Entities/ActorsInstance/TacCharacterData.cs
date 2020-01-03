@@ -1,12 +1,5 @@
-﻿using Base;
-using PhoenixPoint.Common.Entities;
-using PhoenixPoint.Tactical.Entities.Abilities;
-using PhoenixPoint.Tactical.Entities.Equipments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PhoenixPoint.Common.Entities;
+using PP_Parser.Parser;
 
 namespace PhoenixPoint.Tactical.Entities.ActorsInstance
 {

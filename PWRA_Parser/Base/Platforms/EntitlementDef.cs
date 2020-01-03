@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PP_Parser.Parser;
 
 namespace Base.Platforms
 {
-    public class EntitlementDef : PhonixBaseObjectBaseValue//PhoenixGenericCollection<int>
+    public class EntitlementDef : PhonixBaseObjectBaseValue
     {
         // TODO       
     }

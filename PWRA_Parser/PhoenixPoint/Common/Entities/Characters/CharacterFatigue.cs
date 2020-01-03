@@ -1,10 +1,5 @@
-﻿using Base;
-using Base.Entities.Statuses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.Entities.Statuses;
+using PP_Parser.Parser;
 
 namespace PhoenixPoint.Common.Entities.Characters
 {

@@ -1,12 +1,9 @@
-﻿using Base;
-using PhoenixPoint.Geoscape.Entities;
+﻿using PhoenixPoint.Geoscape.Entities;
 using PhoenixPoint.Geoscape.Levels;
 using PhoenixPoint.Tactical.Entities;
+using PP_Parser.Parser;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PP_Parser.Eval
 {

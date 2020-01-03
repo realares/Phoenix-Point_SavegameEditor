@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PP_Parser
+namespace PP_Parser.Parser.Json
 {
     class DecimalJsonConverter : JsonConverter
     {

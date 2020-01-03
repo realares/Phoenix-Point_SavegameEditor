@@ -1,13 +1,8 @@
-﻿using Base;
-using Base.Core;
+﻿using Base.Core;
 using Base.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PP_Parser.Parser;
 
-          
+
 namespace PhoenixPoint.Geoscape.Levels.Factions
 {
     public class GeoPhoenixFaction

@@ -1,11 +1,6 @@
-﻿using Base;
-using Base.Utils;
+﻿using Base.Utils;
 using PP_Parser.Parser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PP_Parser.Parser.Binary;
 
 namespace PhoenixPoint.Common.Levels.Missions
 {

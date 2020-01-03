@@ -1,5 +1,6 @@
-﻿using Base;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using PP_Parser.Parser;
+
 namespace PhoenixPoint.Common.Entities
 {
     public class GeoTacUnitId : PhonixBaseObjectBaseValue

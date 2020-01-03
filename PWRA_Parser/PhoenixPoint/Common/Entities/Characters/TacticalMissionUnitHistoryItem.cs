@@ -1,6 +1,6 @@
-﻿using Base;
-using Base.Utils;
+﻿using Base.Utils;
 using PP_Parser.Parser;
+using PP_Parser.Parser.Binary;
 
 namespace PhoenixPoint.Common.Entities.Characters
 {

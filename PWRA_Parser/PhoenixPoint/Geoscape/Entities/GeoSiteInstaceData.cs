@@ -1,12 +1,7 @@
-﻿using Base;
-using Base.Utils;
+﻿using Base.Utils;
 using PhoenixPoint.Common.Levels.MapGeneration;
 using PhoenixPoint.Geoscape.Entities.Sites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PP_Parser.Parser;
 using UnityEngine.CoreModule;
 
 namespace PhoenixPoint.Geoscape.Entities

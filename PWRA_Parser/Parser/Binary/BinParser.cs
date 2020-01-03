@@ -5,8 +5,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using PP_Parser.Base.Lite;
 using PP_Parser.Parser;
-using PP_Parser.Parser.BinParser;
-using PP_Parser.Parser.JsonParser;
+using PP_Parser.Parser.Binary;
+using PP_Parser.Parser.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +16,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PP_Parser.BinParser
+namespace PP_Parser.Parser.Binary
 {
     public class BinParser
     {
@@ -45,7 +45,7 @@ namespace PP_Parser.BinParser
             _stringTable.Clear();
 
             var magic = _reader.ReadUInt32();
-            if (magic != PP_Parser.BinParser.BinConsts.HeaderMagic)
+            if (magic != BinConsts.HeaderMagic)
                 return;
 
             long startPosition = 4L;

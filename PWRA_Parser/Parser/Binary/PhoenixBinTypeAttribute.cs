@@ -1,13 +1,9 @@
-﻿using PP_Parser.Parser.BinParser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 
-namespace PP_Parser.Parser
-{
+namespace PP_Parser.Parser.Binary
+{    
+
     [System.AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = true)]
     sealed class PhoenixBinTypeAttribute : Attribute
     {

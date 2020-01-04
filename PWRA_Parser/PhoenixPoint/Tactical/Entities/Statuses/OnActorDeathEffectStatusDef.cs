@@ -2,7 +2,7 @@
 
 namespace PhoenixPoint.Tactical.Entities.Statuses
 {
-    public class BleedStatusDef : PhoenixTagDef
+    public class OnActorDeathEffectStatusDef : PhoenixTagDef
     {
     }
     

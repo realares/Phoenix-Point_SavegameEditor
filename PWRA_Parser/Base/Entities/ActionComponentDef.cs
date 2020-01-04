@@ -6,4 +6,5 @@ namespace Base.Entities
     public class ActionComponentDef : PhoenixTagDef
     {
     }
+   
 }

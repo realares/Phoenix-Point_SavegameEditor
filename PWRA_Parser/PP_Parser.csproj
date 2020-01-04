@@ -54,11 +54,14 @@
     <Compile Include="Base\Core\SceneReference.cs" />
     <Compile Include="Base\Core\TimeUnit.cs" />
     <Compile Include="Base\Core\TimingInstanceData.cs" />
+    <Compile Include="Base\Defs\ObjectDef.cs" />
     <Compile Include="Base\Entities\ActionComponentDef.cs" />
     <Compile Include="Base\Entities\ActorCreateData.cs" />
     <Compile Include="Base\Entities\NavMeshNavigationComponentDef.cs" />
     <Compile Include="Base\Entities\Statuses\BaseStat.cs" />
     <Compile Include="Base\Entities\Statuses\ModifiableValue.cs" />
+    <Compile Include="Base\Entities\Statuses\MultiStatus.cs" />
+    <Compile Include="Base\Entities\Statuses\MultiStatusDef.cs" />
     <Compile Include="Base\Entities\Statuses\StatModification.cs" />
     <Compile Include="Base\Entities\Statuses\StatusStat.cs" />
     <Compile Include="Base\Levels\LevelDef.cs" />
@@ -143,8 +146,10 @@
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\MissionTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\NightVisionSkillTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\RaceTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\ResourceTypeTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\SkillTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\SpawnedActorTagDef.cs" />
+    <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\StructuralTargetTypeTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\UniformTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTagsTypes\VoiceProfileTagDef.cs" />
     <Compile Include="PhoenixPoint\Common\Entities\GameTags\GameTagDef.cs" />
@@ -283,8 +288,11 @@
     <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\StartPreparingAbilityDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\TacticalAbilityDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Abilities\RecoverWillAbilityDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacActorData.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacCharacterData.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacEquipmentCrateData.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacEquipmentCrateDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\ActorsInstance\TacGenericActorDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Animations\TacActorAnimActionsDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\BodyPartAspectDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\CrateItemContainer.cs" />
@@ -321,6 +329,8 @@
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\HealthChangeStatusDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\InfectedStatus.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\InfectedStatusDef.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\OnActorDeathEffectStatus.cs" />
+    <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\OnActorDeathEffectStatusDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\PanicStatus.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\PanicStatusDef.cs" />
     <Compile Include="PhoenixPoint\Tactical\Entities\Statuses\ParalysedStatus.cs" />

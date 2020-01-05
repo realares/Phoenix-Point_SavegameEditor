@@ -12,4 +12,5 @@ namespace PhoenixPoint.Tactical.Entities.Statuses
         public PhoenixObjectID _damageAccum { get; set; }
         public PhoenixGenericCollection<string> _slotNames { get; set; }
     }
+    
 }

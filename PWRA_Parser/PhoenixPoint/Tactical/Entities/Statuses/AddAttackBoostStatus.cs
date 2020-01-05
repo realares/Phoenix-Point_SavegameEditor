@@ -12,3 +12,4 @@ namespace PhoenixPoint.Tactical.Entities.Statuses
         public int _attacksBoosted { get; set; }
     }
 }
+

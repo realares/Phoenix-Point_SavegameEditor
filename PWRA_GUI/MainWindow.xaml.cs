@@ -88,8 +88,12 @@ namespace PWRA_GUI
             {
                 foreach (var val in Evaluation.Instance.TacticalActors)
                 {
-                    wrap_char.Children.Add(new TacChar(val.SerializationData.OverrideName.LocalizationKey, val.SerializationData.Stats));
+                    wrap_char.Children.Add(new TacChar(val));
                 }
+                //foreach (var val in Evaluation.Instance.TacticalActors)
+                //{
+                //    wrap_char.Children.Add(new TacChar(val.SerializationData.OverrideName.LocalizationKey, val.SerializationData.Stats));
+                //}
                 return;
             }
 

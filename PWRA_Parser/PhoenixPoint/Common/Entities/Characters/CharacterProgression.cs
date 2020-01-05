@@ -8,7 +8,7 @@ namespace PhoenixPoint.Common.Entities.Characters
     {
         public KnownPhoenixObjectID<SpecializationDef> MainSpecDef { get; set; }
         public int SkillPoints { get; set; }
-        public PhoenixObjectID _secondarySpecializationDef { get; set; }
+        public KnownPhoenixObjectID<SpecializationDef> _secondarySpecializationDef { get; set; }
         public PhoenixGenericCollection<KnownPhoenixObjectID<AbilityTrack>> _abilityTracks { get; set; }
         public PhoenixGenericCollection<KnownPhoenixObjectID<TacticalAbilityDef>> _abilities { get; set; }
         public KnownPhoenixObjectID<LevelProgression> LevelProgression { get; set; }

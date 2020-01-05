@@ -5,6 +5,6 @@ namespace PhoenixPoint.Common.Entities.Items
     public class VehicleItemDef : PhoenixTagDef
     {
     }
-
+    
 
 }

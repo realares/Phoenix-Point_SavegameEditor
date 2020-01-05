@@ -14,11 +14,10 @@ namespace PhoenixPoint.Common.Entities.Characters
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [CombinedNullIgnore]
         public PhoenixGenericArray<PhoenixObjectID> BodyPartsDefs { get; set; }
-        
+
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [CombinedNullIgnore]
         public PhoenixObjectID PrefabSource { get; set; }
     }
-    
 }

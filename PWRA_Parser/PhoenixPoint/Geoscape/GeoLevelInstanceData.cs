@@ -15,7 +15,7 @@ namespace PhoenixPoint.Geoscape
         public object MissionToComplete { get; set; }
         public PhoenixObjectID EventSystemInstanceData { get; set; }
 
-        public DynamicDifficultySystem DynamicDifficultySystemInstanceData { get; set; }
+        public DynamicDifficultySystem.DifficultyInstanceData DynamicDifficultySystemInstanceData { get; set; }
 
         public PhoenixObjectID CurrentDifficultyLevel { get; set; }
         public PhoenixObjectID MistData { get; set; }

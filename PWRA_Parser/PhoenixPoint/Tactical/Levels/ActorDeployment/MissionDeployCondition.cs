@@ -6,7 +6,6 @@ namespace PhoenixPoint.Tactical.Levels.ActorDeployment
     {
         public MissionDeployConditionData MissionData { get; set; }
         public PhoenixObjectID DeployZone { get; set; }
-
-
     }
+
 }

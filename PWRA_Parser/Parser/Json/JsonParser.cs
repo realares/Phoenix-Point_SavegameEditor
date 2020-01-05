@@ -30,6 +30,7 @@ namespace PP_Parser.Parser.Json
 
             var setting = new JsonSerializerSettings();
             setting.FloatParseHandling = FloatParseHandling.Double;
+            setting.Converters.Add(new UnityEngine.CoreModule.DumpNANPhoenixJsonHandling());
 
             using (var sr = new StreamReader(stream))
             {
@@ -55,7 +56,8 @@ namespace PP_Parser.Parser.Json
         public void Save(Stream stream, SaveGame saveGame)
         {
             var settings = new JsonSerializerSettings();
-            settings.Converters.Add(new DecimalJsonConverter());
+            settings.Converters.Add(new DecimalJsonConverter()); 
+            settings.Converters.Add(new UnityEngine.CoreModule.DumpNANPhoenixJsonHandling());
             settings.Formatting = Formatting.Indented;
 
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(saveGame, settings);

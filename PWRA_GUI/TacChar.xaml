@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PWRA_GUI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+    <Border x:Name="border" BorderBrush="Black" BorderThickness="1" Margin="5">
         <StackPanel Margin="5">
         <StackPanel x:Name="basestack">
             <StackPanel Orientation="Horizontal">

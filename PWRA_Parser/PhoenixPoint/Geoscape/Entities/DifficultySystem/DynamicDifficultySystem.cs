@@ -3,11 +3,15 @@ using System;
 
 namespace PhoenixPoint.Geoscape.Entities.DifficultySystem
 {
-    public class DynamicDifficultySystem : PhonixBaseObjectBaseValue
+    public class DynamicDifficultySystem 
     {
-        public PhoenixGenericArray<Double> BattleOutcomes { get; set; }
+        
+         public class DifficultyInstanceData : PhonixBaseObjectBaseValue
+        {
+            public PhoenixGenericArray<Double> BattleOutcomes { get; set; }
 
-        public PhoenixGenericArray<double> CurrentDeploymentPerThreatLevel { get; set; }
-        public PhoenixGenericArray<double> MinDeploymentPerThreatLevel { get; set; }
+            public PhoenixGenericArray<double> CurrentDeploymentPerThreatLevel { get; set; }
+            public PhoenixGenericArray<double> MinDeploymentPerThreatLevel { get; set; }
+        }
     }
 }

@@ -2,7 +2,8 @@
 
 namespace PhoenixPoint.Tactical.Entities.Effects.DamageTypes
 {
-    public class DamageEffectDef : PhoenixTagDef
+    public class DamageTypeBaseEffectDef : PhoenixTagDef
     {
     }
+    
 }

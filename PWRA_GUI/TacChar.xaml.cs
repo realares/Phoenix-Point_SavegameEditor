@@ -1,5 +1,7 @@
 ﻿using Base.Entities.Statuses;
+using PhoenixPoint.Tactical.Entities;
 using PP_Parser.Parser;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,7 +13,7 @@ namespace PWRA_GUI
     /// </summary>
     public partial class TacChar : UserControl
     {
-        private PhoenixGenericCollection<KnownPhoenixObjectID<StatusStat>> _context;
+        private TacticalActor _context;
         private string _tacCharName;
 
         public TacChar()
@@ -19,12 +21,35 @@ namespace PWRA_GUI
             InitializeComponent();
             Loaded += TacChar_Loaded;
         }
-        public TacChar(string name, PhoenixGenericCollection<KnownPhoenixObjectID<StatusStat>> context)
+        public TacChar(TacticalActor context)
          : this()
         {
-            _tacCharName = name;
+            switch (context.SerializationData.MissionParticipant.EnumName)
+            {
+                case "Player":
+                    border.BorderBrush = System.Windows.Media.Brushes.Green;
+                    border.BorderThickness = new Thickness(2);
+                    break;
+                case "Intruder":
+                    border.BorderBrush = System.Windows.Media.Brushes.Red;
+                    border.BorderThickness = new Thickness(2);
+                    break;
+                default:
+                    break;
+            }
+            //val.SerializationData.OverrideName.LocalizationKey, val.SerializationData.Stats
+            if (context.SerializationData.OverrideName != null)
+                _tacCharName = context.SerializationData.OverrideName.LocalizationKey;
+            else
+                _tacCharName = context.ActorCreateData.Name;
             _context = context;
         }
+//        public TacChar(string name, PhoenixGenericCollection<KnownPhoenixObjectID<StatusStat>> context)
+//: this()
+//        {
+//            _tacCharName = name;
+//            _context = context;
+//        }
 
 
         private void TacChar_Loaded(object sender, RoutedEventArgs e)
@@ -46,7 +71,7 @@ namespace PWRA_GUI
 
             basestack.Children.Add(textBlock_name);
 
-            foreach (var item in _context.CollectionValues)
+            foreach (var item in _context.SerializationData.Stats.CollectionValues)
             {
                 var o = item.Raw();
                 switch (o)
@@ -141,7 +166,7 @@ namespace PWRA_GUI
 
         private void btnAllToMax_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in _context.CollectionValues)
+            foreach (var item in _context.SerializationData.Stats.CollectionValues)
             {
                 var o = item.Raw();
                 switch (o)
@@ -165,7 +190,7 @@ namespace PWRA_GUI
         }
         private void btnAmorToMax_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in _context.CollectionValues)
+            foreach (var item in _context.SerializationData.Stats.CollectionValues)
             {
                 var o = item.Raw();
                 switch (o)

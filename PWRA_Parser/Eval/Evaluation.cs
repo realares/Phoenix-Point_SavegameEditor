@@ -54,17 +54,39 @@ namespace PP_Parser.Eval
                 {
                     var val = car.ObjectValue as TacticalActor;
 
-                    if (val.SerializationData.MissionParticipant.EnumName != "Player")
-                        continue;
+                    //if (val.SerializationData.MissionParticipant.EnumName != "Player")
+                    //    continue;
 
-                    if (val.SerializationData.OverrideName == null)
-                        continue;
+                    //if (val.SerializationData.OverrideName == null)
+                    //    continue;
 
                     _result.Add(val);
                 }
                 return _result;
             }
         }
+        //public List<TacticalActor> AlienActors
+        //{
+        //    get
+        //    {
+        //        List<TacticalActor> _result = new List<TacticalActor>();
+
+        //        var TacCharacter = save.Contents.Objects.FindAll(x => (x.ObjectValue is TacticalActor));
+        //        foreach (var car in TacCharacter)
+        //        {
+        //            var val = car.ObjectValue as TacticalActor;
+
+        //            if (val.SerializationData.MissionParticipant.EnumName == "Player")
+        //                continue;
+
+        //            if (val.SerializationData.OverrideName == null)
+        //                continue;
+
+        //            _result.Add(val);
+        //        }
+        //        return _result;
+        //    }
+        //}
 
         #endregion
     }
